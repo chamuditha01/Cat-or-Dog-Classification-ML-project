@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat or Dog Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .prediction {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008080;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 300px;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image of a Cat or a Dog</h1>
+    
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <input type="submit" value="Upload Image">
+    </form>
+
+    {% if result %}
+    <h2 class="prediction">Prediction: It's a {{ result }}!</h2>
+    <img src="{{ image_path }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
